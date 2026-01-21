@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国常用服务电话指南 2025版</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+            background-color: #f3f4f6;
+            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* 隐藏滚动条但保持滚动 */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-header {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        .category-header img {
+            transition: transform 0.6s ease;
+        }
+        .category-header:hover img {
+            transform: scale(1.05);
+        }
+        .glass-overlay {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+        }
+
+        .phone-btning {
+            position: relative;
+            overflow: hidden;
+        }
+        .phone-btning::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        .phone-btning:hover::after {
+            left: 100%;
+        }
+
+        /* 定位动画 */
+        .pulse-ring {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ef4444;
+            box-shadow: 0 0 0 rgba(239, 68, 68, 0.4);
+            animation: pulse-red 2s infinite;
+        }
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen pb-12">
+
+    <!-- 顶部导航与搜索 -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-red-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-red-200">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <h1 class="text-xl font-bold tracking-tight text-slate-900">中国生活服务黄页 <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-normal">2025更正版</span></h1>
+            </div>
+            
+            <div class="relative w-full md:w-96">
+                <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <input type="text" id="searchInput" placeholder="搜索电话或服务 (如: 顺丰, 报警...)" 
+                       class="w-full pl-10 pr-4 py-2.5 bg-gray-100 border-transparent focus:bg-white focus:ring-2 focus:ring-blue-500 rounded-xl text-sm transition-all outline-none">
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8 space-y-10">
+
+        <!-- ⚠️ 紧急救援 (置顶) -->
+        <section id="emergency-section">
+            <div class="category-header h-32 md:h-40 mb-6 group relative shadow-lg">
+                <img src="https://images.unsplash.com/photo-1595180326466-9e63442a8427?q=80&w=2000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="Emergency">
+                <div class="glass-overlay absolute inset-0 flex items-center px-8">
+                    <div>
+                        <h2 class="text-3xl font-black text-white mb-1 flex items-center gap-3">
+                            <i class="fa-solid fa-truck-medical text-red-500 bg-white/90 p-2 rounded-lg"></i> 
+                            紧急救援
+                        </h2>
+                        <p class="text-white/90 text-sm font-medium">生命通道，非紧急情况请勿占用</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 📍 紧急定位助手 (新增) -->
+            <div class="bg-slate-900 text-white rounded-2xl p-6 shadow-xl mb-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -mr-16 -mt-16"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -ml-16 -mb-16"></div>
+                
+                <div class="relative z-10 flex flex-col md:flex-row gap-8">
+                    <!-- 左侧：操作与显示 -->
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <h3 class="text-2xl font-bold flex items-center gap-2">
+                                <i class="fa-solid fa-location-dot text-red-500"></i> 紧急定位助手
+                            </h3>
+                            <span class="text-xs bg-slate-700 px-2 py-1 rounded text-gray-300">陌生环境报警必备</span>
+                        </div>
+
+                        <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700 backdrop-blur-sm">
+                            <div id="location-status" class="text-center py-6">
+                                <p class="text-gray-400 mb-4">点击下方按钮获取当前精确经纬度</p>
+                            </div>
+                            
+                            <div id="location-result" class="hidden">
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-600">
+                                        <div class="text-xs text-gray-400 mb-1">北纬 (Latitude)</div>
+                                        <div class="text-2xl md:text-3xl font-mono font-bold text-yellow-400" id="lat-display">--</div>
+                                    </div>
+                                    <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-600">
+                                        <div class="text-xs text-gray-400 mb-1">东经 (Longitude)</div>
+                                        <div class="text-2xl md:text-3xl font-mono font-bold text-yellow-400" id="lng-display">--</div>
+                                    </div>
+                                </div>
+                                <div class="text-xs text-gray-400 flex items-center gap-2 mb-4">
+                                    <div class="pulse-ring"></div>
+                                    <span id="accuracy-display">精度获取中...</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <a id="map-link" href="#" target="_blank" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg text-center font-bold text-sm transition flex items-center justify-center gap-2">
+                                        <i class="fa-solid fa-map"></i> 在地图中查看位置
+                                    </a>
+                                </div>
+                            </div>
+
+                            <button id="get-loc-btn" onclick="getLocation()" class="w-full bg-red-600 hover:bg-red-700 active:scale-95 text-white py-3 rounded-xl font-bold text-lg shadow-lg shadow-red-900/50 transition flex items-center justify-center gap-2 mt-2">
+                                <i class="fa-solid fa-crosshairs"></i> 获取我的位置
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 右侧：教学指南 -->
+                    <div class="flex-1 border-l border-slate-700 pl-0 md:pl-8 pt-4 md:pt-0">
+                        <h4 class="font-bold text-lg mb-3 text-blue-200"><i class="fa-solid fa-book-open mr-2"></i>如何使用坐标精确报警？</h4>
+                        <div class="space-y-4 text-sm text-gray-300">
+                            <div class="flex gap-3">
+                                <div class="w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center flex-shrink-0 text-xs font-bold">1</div>
+                                <div>
+                                    <strong class="text-white block mb-1">何时使用？</strong>
+                                    当您在高速公路、野外、陌生街道等<span class="text-yellow-400">没有明显地标</span>的地方，无法描述具体位置时。
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center flex-shrink-0 text-xs font-bold">2</div>
+                                <div>
+                                    <strong class="text-white block mb-1">怎么说？</strong>
+                                    “警察同志，我不知道具体路名，但我手机显示的坐标是：<span class="text-yellow-400">北纬xx.xxxx度，东经xxx.xxxx度</span>，请通过坐标定位我。”
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center flex-shrink-0 text-xs font-bold">3</div>
+                                <div>
+                                    <strong class="text-white block mb-1">短信报警技巧</strong>
+                                    若使用 <span class="text-red-400 font-bold">12110</span> 短信报警，可直接将左侧显示的坐标数字复制并发送。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- 110 -->
+                <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-red-500 card-hover group relative overflow-hidden search-item" data-keywords="报警 警察 盗窃">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-3xl font-black text-slate-900">110</h3>
+                            <p class="text-sm font-bold text-red-600">报警求助</p>
+                        </div>
+                        <i class="fa-solid fa-shield-halved text-red-100 text-4xl group-hover:text-red-500 transition-colors"></i>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-4 h-8">刑事/治安案件、危及人身安全紧急情况。</p>
+                    <a href="tel:110" class="flex items-center justify-center w-full py-2 bg-red-50 text-red-600 font-bold rounded-lg hover:bg-red-600 hover:text-white transition-colors phone-btning">
+                        <i class="fa-solid fa-phone mr-2"></i> 立即拨打
+                    </a>
+                </div>
+
+                <!-- 12110 -->
+                <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-red-500 card-hover group relative overflow-hidden search-item" data-keywords="短信报警 聋哑人 不方便说话">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-3xl font-black text-slate-900">12110</h3>
+                            <p class="text-sm font-bold text-red-600">短信报警</p>
+                        </div>
+                        <i class="fa-solid fa-comment-sms text-red-100 text-4xl group-hover:text-red-500 transition-colors"></i>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-4 h-8">听障人士或不便语音通话时的静默报警通道。</p>
+                    <a href="sms:12110" class="flex items-center justify-center w-full py-2 bg-red-50 text-red-600 font-bold rounded-lg hover:bg-red-600 hover:text-white transition-colors phone-btning">
+                        <i class="fa-solid fa-comments mr-2"></i> 发送短信
+                    </a>
+                </div>
+
+                <!-- 119 -->
+                <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-orange-500 card-hover group search-item" data-keywords="火警 消防 火灾">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-3xl font-black text-slate-900">119</h3>
+                            <p class="text-sm font-bold text-orange-600">火警消防</p>
+                        </div>
+                        <i class="fa-solid fa-fire-extinguisher text-orange-100 text-4xl group-hover:text-orange-500 transition-colors"></i>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-4 h-8">火灾扑救、抢险救援、化学品泄漏。</p>
+                    <a href="tel:119" class="flex items-center justify-center w-full py-2 bg-orange-50 text-orange-600 font-bold rounded-lg hover:bg-orange-600 hover:text-white transition-colors phone-btning">
+                        <i class="fa-solid fa-phone mr-2"></i> 立即拨打
+                    </a>
+                </div>
+
+                <!-- 120 -->
+                <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-green-500 card-hover group search-item" data-keywords="救护车 医生 急救">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-3xl font-black text-slate-900">120</h3>
+                            <p class="text-sm font-bold text-green-600">医疗急救</p>
+                        </div>
+                        <i class="fa-solid fa-heart-pulse text-green-100 text-4xl group-hover:text-green-500 transition-colors"></i>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-4 h-8">突发急症、意外伤害、需要救护车。</p>
+                    <a href="tel:120" class="flex items-center justify-center w-full py-2 bg-green-50 text-green-600 font-bold rounded-lg hover:bg-green-600 hover:text-white transition-colors phone-btning">
+                        <i class="fa-solid fa-phone mr-2"></i> 立即拨打
+                    </a>
+                </div>
+
+                <!-- 122 -->
+                <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-blue-500 card-hover group search-item" data-keywords="交警 车祸 事故">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-3xl font-black text-slate-900">122</h3>
+                            <p class="text-sm font-bold text-blue-600">交通事故</p>
+                        </div>
+                        <i class="fa-solid fa-car-burst text-blue-100 text-4xl group-hover:text-blue-500 transition-colors"></i>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-4 h-8">交通事故报警、路况查询、交通举报。</p>
+                    <a href="tel:122" class="flex items-center justify-center w-full py-2 bg-blue-50 text-blue-600 font-bold rounded-lg hover:bg-blue-600 hover:text-white transition-colors phone-btning">
+                        <i class="fa-solid fa-phone mr-2"></i> 立即拨打
+                    </a>
+                </div>
+
+                 <!-- 96110 -->
+                 <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 border-indigo-500 card-hover group search-item" data-keywords="诈骗 反诈 骗子">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-3xl font-black text-slate-900">96110</h3>
+                            <p class="text-sm font-bold text-indigo-600">国家反诈</p>
+                        </div>
+                        <i class="fa-solid fa-user-shield text-indigo-100 text-4xl group-hover:text-indigo-500 transition-colors"></i>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-4 h-8">劝阻诈骗、咨询反诈知识、举报线索。</p>
+                    <a href="tel:96110" class="flex items-center justify-center w-full py-2 bg-indigo-50 text-indigo-600 font-bold rounded-lg hover:bg-indigo-600 hover:text-white transition-colors phone-btning">
+                        <i class="fa-solid fa-phone mr-2"></i> 立即拨打
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🏛️ 民生与政务 -->
+        <section>
+            <div class="category-header h-24 mb-6 group relative shadow-lg rounded-xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="City Services">
+                <div class="glass-overlay absolute inset-0 flex items-center px-8">
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                        <i class="fa-solid fa-city text-blue-400"></i> 市民与政务热线
+                    </h2>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- 12345 Super Card -->
+                <div class="md:col-span-2 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-6 text-white shadow-lg search-item" data-keywords="市长热线 投诉 政府">
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="text-5xl font-black tracking-tighter mb-1">12345</h3>
+                            <div class="text-lg font-medium opacity-90">政务服务便民热线 (首选)</div>
+                        </div>
+                        <div class="text-blue-300 opacity-50"><i class="fa-solid fa-comments text-6xl"></i></div>
+                    </div>
+                    <p class="mt-4 text-blue-100 text-sm leading-relaxed">
+                        ★ <strong>万能热线</strong>：遇到除了紧急报警外的所有市政、行政、投诉建议问题，均可拨打此号码。
+                        <br>包含：社保咨询、违章停车挪车(部分城市)、消费纠纷、噪音扰民、政策咨询等。
+                    </p>
+                    <a href="tel:12345" class="mt-4 inline-block bg-white text-blue-700 px-6 py-2 rounded-lg font-bold hover:bg-blue-50 transition">拨打热线</a>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-sm flex flex-col justify-between card-hover search-item" data-keywords="消费者 维权 假货">
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-2xl font-bold text-gray-800">12315</span>
+                            <i class="fa-solid fa-scale-balanced text-gray-300"></i>
+                        </div>
+                        <div class="text-sm font-bold text-purple-600">消费者投诉举报</div>
+                        <p class="text-xs text-gray-500 mt-2">购物纠纷、假冒伪劣、价格欺诈。</p>
+                    </div>
+                    <a href="tel:12315" class="mt-3 text-center py-1.5 bg-gray-50 hover:bg-purple-100 text-gray-600 hover:text-purple-700 rounded text-sm font-medium transition">拨打</a>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-sm flex flex-col justify-between card-hover search-item" data-keywords="社保 养老金 医保">
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-2xl font-bold text-gray-800">12333</span>
+                            <i class="fa-solid fa-id-card text-gray-300"></i>
+                        </div>
+                        <div class="text-sm font-bold text-indigo-600">社保服务</div>
+                        <p class="text-xs text-gray-500 mt-2">养老金、医保查询、劳动仲裁咨询。</p>
+                    </div>
+                    <a href="tel:12333" class="mt-3 text-center py-1.5 bg-gray-50 hover:bg-indigo-100 text-gray-600 hover:text-indigo-700 rounded text-sm font-medium transition">拨打</a>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-sm flex flex-col justify-between card-hover search-item" data-keywords="税务 发票">
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-2xl font-bold text-gray-800">12366</span>
+                            <i class="fa-solid fa-file-invoice-dollar text-gray-300"></i>
+                        </div>
+                        <div class="text-sm font-bold text-teal-600">税务服务</div>
+                        <p class="text-xs text-gray-500 mt-2">个人所得税、发票真伪、企业税务。</p>
+                    </div>
+                    <a href="tel:12366" class="mt-3 text-center py-1.5 bg-gray-50 hover:bg-teal-100 text-gray-600 hover:text-teal-700 rounded text-sm font-medium transition">拨打</a>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-sm flex flex-col justify-between card-hover search-item" data-keywords="公积金 贷款 房贷">
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-2xl font-bold text-gray-800">12329</span>
+                            <i class="fa-solid fa-house-chimney-user text-gray-300"></i>
+                        </div>
+                        <div class="text-sm font-bold text-orange-600">住房公积金</div>
+                        <p class="text-xs text-gray-500 mt-2">公积金账户查询、贷款提取咨询。</p>
+                    </div>
+                    <a href="tel:12329" class="mt-3 text-center py-1.5 bg-gray-50 hover:bg-orange-100 text-gray-600 hover:text-orange-700 rounded text-sm font-medium transition">拨打</a>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-sm flex flex-col justify-between card-hover search-item" data-keywords="法律 律师">
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-2xl font-bold text-gray-800">12348</span>
+                            <i class="fa-solid fa-gavel text-gray-300"></i>
+                        </div>
+                        <div class="text-sm font-bold text-red-600">法律援助</div>
+                        <p class="text-xs text-gray-500 mt-2">免费法律咨询、申请法律援助。</p>
+                    </div>
+                    <a href="tel:12348" class="mt-3 text-center py-1.5 bg-gray-50 hover:bg-red-100 text-gray-600 hover:text-red-700 rounded text-sm font-medium transition">拨打</a>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-sm flex flex-col justify-between card-hover search-item" data-keywords="查号 挪车 电话">
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-2xl font-bold text-gray-800">114</span>
+                            <i class="fa-solid fa-address-book text-gray-300"></i>
+                        </div>
+                        <div class="text-sm font-bold text-cyan-600">查号台/挪车</div>
+                        <p class="text-xs text-gray-500 mt-2">查询机构电话，部分城市支持移车。</p>
+                    </div>
+                    <a href="tel:114" class="mt-3 text-center py-1.5 bg-gray-50 hover:bg-cyan-100 text-gray-600 hover:text-cyan-700 rounded text-sm font-medium transition">拨打</a>
+                </div>
+                
+                 <div class="bg-white p-4 rounded-xl shadow-sm flex flex-col justify-between card-hover search-item" data-keywords="电费 停电">
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-2xl font-bold text-gray-800">95598</span>
+                            <i class="fa-solid fa-bolt text-gray-300"></i>
+                        </div>
+                        <div class="text-sm font-bold text-green-600">国家电网</div>
+                        <p class="text-xs text-gray-500 mt-2">停电报修、电费查询。(南方电网95598)</p>
+                    </div>
+                    <a href="tel:95598" class="mt-3 text-center py-1.5 bg-gray-50 hover:bg-green-100 text-gray-600 hover:text-green-700 rounded text-sm font-medium transition">拨打</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🚚 快递与物流 -->
+        <section>
+            <div class="category-header h-24 mb-6 group relative shadow-lg rounded-xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="Delivery">
+                <div class="glass-overlay absolute inset-0 flex items-center px-8">
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                        <i class="fa-solid fa-box-open text-yellow-400"></i> 快递物流
+                    </h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                <!-- 顺丰 -->
+                <a href="tel:95338" class="bg-slate-800 text-white p-4 rounded-xl shadow-md hover:bg-slate-900 transition flex flex-col items-center text-center search-item" data-keywords="顺丰 SF">
+                    <span class="text-xl font-bold mb-1">95338</span>
+                    <span class="text-xs opacity-70">顺丰速运</span>
+                </a>
+                <!-- EMS -->
+                <a href="tel:11183" class="bg-green-700 text-white p-4 rounded-xl shadow-md hover:bg-green-800 transition flex flex-col items-center text-center search-item" data-keywords="邮政 EMS">
+                    <span class="text-xl font-bold mb-1">11183</span>
+                    <span class="text-xs opacity-70">中国邮政EMS</span>
+                </a>
+                <!-- 京东 -->
+                <a href="tel:950616" class="bg-red-700 text-white p-4 rounded-xl shadow-md hover:bg-red-800 transition flex flex-col items-center text-center search-item" data-keywords="京东 JD">
+                    <span class="text-xl font-bold mb-1">950616</span>
+                    <span class="text-xs opacity-70">京东物流</span>
+                </a>
+                <!-- 中通 -->
+                <a href="tel:95311" class="bg-blue-500 text-white p-4 rounded-xl shadow-md hover:bg-blue-600 transition flex flex-col items-center text-center search-item" data-keywords="中通 ZTO">
+                    <span class="text-xl font-bold mb-1">95311</span>
+                    <span class="text-xs opacity-70">中通快递</span>
+                </a>
+                <!-- 圆通 -->
+                <a href="tel:95554" class="bg-purple-600 text-white p-4 rounded-xl shadow-md hover:bg-purple-700 transition flex flex-col items-center text-center search-item" data-keywords="圆通 YTO">
+                    <span class="text-xl font-bold mb-1">95554</span>
+                    <span class="text-xs opacity-70">圆通速递</span>
+                </a>
+                <!-- 申通 -->
+                <a href="tel:95543" class="bg-orange-500 text-white p-4 rounded-xl shadow-md hover:bg-orange-600 transition flex flex-col items-center text-center search-item" data-keywords="申通 STO">
+                    <span class="text-xl font-bold mb-1">95543</span>
+                    <span class="text-xs opacity-70">申通快递</span>
+                </a>
+                <!-- 韵达 -->
+                <a href="tel:95546" class="bg-yellow-500 text-white p-4 rounded-xl shadow-md hover:bg-yellow-600 transition flex flex-col items-center text-center search-item" data-keywords="韵达">
+                    <span class="text-xl font-bold mb-1">95546</span>
+                    <span class="text-xs opacity-70">韵达快递</span>
+                </a>
+                <!-- 德邦 -->
+                <a href="tel:95353" class="bg-blue-800 text-white p-4 rounded-xl shadow-md hover:bg-blue-900 transition flex flex-col items-center text-center search-item" data-keywords="德邦">
+                    <span class="text-xl font-bold mb-1">95353</span>
+                    <span class="text-xs opacity-70">德邦快递</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ✈️ 出行与通讯 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- 交通 -->
+            <section>
+                <div class="category-header h-20 mb-4 group relative shadow-md rounded-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="Travel">
+                    <div class="glass-overlay absolute inset-0 flex items-center px-6">
+                        <h2 class="text-xl font-bold text-white"><i class="fa-solid fa-plane-departure mr-2"></i> 交通出行</h2>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                     <div class="bg-white p-3 rounded-lg shadow-sm flex items-center justify-between search-item" data-keywords="火车 高铁 票">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-blue-100 p-2 rounded text-blue-600"><i class="fa-solid fa-train"></i></div>
+                            <div>
+                                <div class="font-bold text-slate-800">12306</div>
+                                <div class="text-xs text-gray-500">铁路客户服务 (订票/投诉)</div>
+                            </div>
+                        </div>
+                        <a href="tel:12306" class="text-blue-600 px-3 py-1 bg-blue-50 rounded-md text-sm font-medium">拨打</a>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg shadow-sm flex items-center justify-between search-item" data-keywords="飞机 航空 投诉">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-blue-100 p-2 rounded text-blue-600"><i class="fa-solid fa-plane"></i></div>
+                            <div>
+                                <div class="font-bold text-slate-800">12326</div>
+                                <div class="text-xs text-gray-500">民航服务质量监督</div>
+                            </div>
+                        </div>
+                        <a href="tel:12326" class="text-blue-600 px-3 py-1 bg-blue-50 rounded-md text-sm font-medium">拨打</a>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg shadow-sm flex items-center justify-between search-item" data-keywords="高速 公路 出租车">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-yellow-100 p-2 rounded text-yellow-600"><i class="fa-solid fa-road"></i></div>
+                            <div>
+                                <div class="font-bold text-slate-800">12328</div>
+                                <div class="text-xs text-gray-500">交通运输监督 (高速/出租)</div>
+                            </div>
+                        </div>
+                        <a href="tel:12328" class="text-yellow-600 px-3 py-1 bg-yellow-50 rounded-md text-sm font-medium">拨打</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 通讯 -->
+            <section>
+                 <div class="category-header h-20 mb-4 group relative shadow-md rounded-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="Tech">
+                    <div class="glass-overlay absolute inset-0 flex items-center px-6">
+                        <h2 class="text-xl font-bold text-white"><i class="fa-solid fa-signal mr-2"></i> 通讯服务</h2>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                     <a href="tel:10086" class="bg-white p-3 rounded-lg shadow-sm flex flex-col items-center justify-center border border-gray-100 hover:border-blue-300 transition search-item" data-keywords="移动 宽带">
+                        <span class="text-lg font-bold text-blue-600">10086</span>
+                        <span class="text-xs text-gray-500">中国移动</span>
+                    </a>
+                    <a href="tel:10000" class="bg-white p-3 rounded-lg shadow-sm flex flex-col items-center justify-center border border-gray-100 hover:border-blue-300 transition search-item" data-keywords="电信 宽带">
+                        <span class="text-lg font-bold text-blue-600">10000</span>
+                        <span class="text-xs text-gray-500">中国电信</span>
+                    </a>
+                    <a href="tel:10010" class="bg-white p-3 rounded-lg shadow-sm flex flex-col items-center justify-center border border-gray-100 hover:border-blue-300 transition search-item" data-keywords="联通 宽带">
+                        <span class="text-lg font-bold text-blue-600">10010</span>
+                        <span class="text-xs text-gray-500">中国联通</span>
+                    </a>
+                    <a href="tel:10099" class="bg-white p-3 rounded-lg shadow-sm flex flex-col items-center justify-center border border-gray-100 hover:border-blue-300 transition search-item" data-keywords="广电 宽带">
+                        <span class="text-lg font-bold text-blue-600">10099</span>
+                        <span class="text-xs text-gray-500">中国广电</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <!-- 💰 银行服务 (紧凑网格) -->
+        <section>
+            <h3 class="text-lg font-bold text-gray-700 mb-4 px-2 border-l-4 border-slate-600">各大银行客服</h3>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
+                <a href="tel:95588" class="bg-white py-3 rounded hover:shadow-md text-center transition search-item" data-keywords="工商银行 工行"><div class="font-bold text-slate-800">95588</div><div class="text-[10px] text-gray-500">工商银行</div></a>
+                <a href="tel:95599" class="bg-white py-3 rounded hover:shadow-md text-center transition search-item" data-keywords="农业银行 农行"><div class="font-bold text-slate-800">95599</div><div class="text-[10px] text-gray-500">农业银行</div></a>
+                <a href="tel:95566" class="bg-white py-3 rounded hover:shadow-md text-center transition search-item" data-keywords="中国银行 中行"><div class="font-bold text-slate-800">95566</div><div class="text-[10px] text-gray-500">中国银行</div></a>
+                <a href="tel:95533" class="bg-white py-3 rounded hover:shadow-md text-center transition search-item" data-keywords="建设银行 建行"><div class="font-bold text-slate-800">95533</div><div class="text-[10px] text-gray-500">建设银行</div></a>
+                <a href="tel:95559" class="bg-white py-3 rounded hover:shadow-md text-center transition search-item" data-keywords="交通银行 交行"><div class="font-bold text-slate-800">95559</div><div class="text-[10px] text-gray-500">交通银行</div></a>
+                <a href="tel:95555" class="bg-white py-3 rounded hover:shadow-md text-center transition search-item" data-keywords="招商银行 招行"><div class="font-bold text-slate-800">95555</div><div class="text-[10px] text-gray-500">招商银行</div></a>
+                <a href="tel:95508" class="bg-white py-3 rounded hover:shadow-md text-center transition search-item" data-keywords="广发银行"><div class="font-bold text-slate-800">95508</div><div class="text-[10px] text-gray-500">广发银行</div></a>
+                <a href="tel:95501" class="bg-white py-3 rounded hover:shadow-md text-center transition search-item" data-keywords="平安银行"><div class="font-bold text-slate-800">95501</div><div class="text-[10px] text-gray-500">平安银行</div></a>
+                <a href="tel:95528" class="bg-white py-3 rounded hover:shadow-md text-center transition search-item" data-keywords="浦发银行"><div class="font-bold text-slate-800">95528</div><div class="text-[10px] text-gray-500">浦发银行</div></a>
+                <a href="tel:95568" class="bg-white py-3 rounded hover:shadow-md text-center transition search-item" data-keywords="民生银行"><div class="font-bold text-slate-800">95568</div><div class="text-[10px] text-gray-500">民生银行</div></a>
+                <a href="tel:95577" class="bg-white py-3 rounded hover:shadow-md text-center transition search-item" data-keywords="华夏银行"><div class="font-bold text-slate-800">95577</div><div class="text-[10px] text-gray-500">华夏银行</div></a>
+                <a href="tel:95561" class="bg-white py-3 rounded hover:shadow-md text-center transition search-item" data-keywords="兴业银行"><div class="font-bold text-slate-800">95561</div><div class="text-[10px] text-gray-500">兴业银行</div></a>
+            </div>
+        </section>
+
+        <!-- ⚖️ 免责声明与法律警示 (新增) -->
+        <section class="bg-slate-200 rounded-xl p-6 text-sm text-slate-600 border border-slate-300">
+            <h3 class="font-bold text-slate-800 text-lg mb-3 flex items-center">
+                <i class="fa-solid fa-scale-balanced text-slate-500 mr-2"></i> 免责声明与法律警示
+            </h3>
+            
+            <div class="space-y-4">
+                <div class="bg-red-50 border-l-4 border-red-500 p-4">
+                    <p class="font-bold text-red-700 mb-1"><i class="fa-solid fa-gavel mr-1"></i> 严正法律警示：</p>
+                    <p class="text-red-600">
+                        <strong>恶意拨打报警电话是违法行为！</strong><br>
+                        根据《中华人民共和国治安管理处罚法》第二十五条：散布谣言，谎报险情、疫情、警情或者以其他方法故意扰乱公共秩序的，处五日以上十日以下拘留，可以并处五百元以下罚款；情节较轻的，处五日以下拘留或者五百元以下罚款。
+                        <br>请务必仅在真实紧急情况下拨打 110、119、120 等急救号码。
+                    </p>
+                </div>
+
+                <div>
+                    <p class="font-bold text-slate-700 mb-1">免责条款：</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong>信息仅供参考：</strong>本页面汇总的电话号码及服务信息仅供便民参考，不保证信息的实时性、准确性或完整性。实际服务号码如有变更，请以官方发布为准。</li>
+                        <li><strong>定位误差说明：</strong>“紧急定位助手”功能调用的经纬度数据依赖于您的设备硬件（GPS/基站）及网络环境，可能存在数百米甚至更大的误差。开发者不对因定位偏差导致的救援延误承担任何责任。</li>
+                        <li><strong>用户行为责任：</strong>用户通过本页面拨打电话或发送短信产生的任何后果（包括但不限于话费消耗、法律纠纷、因误拨导致的责任），均由用户自行承担。本工具开发者不承担任何连带法律责任。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center text-gray-400 text-xs py-8 border-t border-gray-200 mt-8">
+        <p class="mb-2">⚠️ 本页面号码仅供参考，异地拨打可能需要加拨区号</p>
+        <p>紧急情况请直接拨打，切勿完全依赖网页显示</p>
+    </footer>
+
+    <script>
+        // 简单的搜索功能
+        document.getElementById('searchInput').addEventListener('keyup', function(e) {
+            const term = e.target.value.toLowerCase();
+            const items = document.querySelectorAll('.search-item');
+            
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                const keywords = item.getAttribute('data-keywords') ? item.getAttribute('data-keywords').toLowerCase() : '';
+                
+                if (text.includes(term) || keywords.includes(term)) {
+                    item.style.opacity = '1';
+                    item.style.display = '';
+                    if(item.classList.contains('phone-btning')) {
+                         item.parentElement.style.display = '';
+                    }
+                } else {
+                    item.style.opacity = '0.3';
+                    if(term !== '') {
+                        item.style.display = 'none';
+                    } else {
+                         item.style.opacity = '1';
+                         item.style.display = '';
+                    }
+                }
+            });
+        });
+
+        // 定位功能脚本
+        function getLocation() {
+            const status = document.getElementById("location-status");
+            const btn = document.getElementById("get-loc-btn");
+            const resultDiv = document.getElementById("location-result");
+            
+            if (!navigator.geolocation) {
+                status.innerHTML = "<p class='text-red-400'>您的浏览器不支持地理定位。</p>";
+                return;
+            }
+
+            status.innerHTML = "<p class='text-yellow-400 font-bold'>正在获取卫星信号，请稍候...</p>";
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 定位中...';
+            btn.disabled = true;
+            btn.classList.add('opacity-50');
+
+            navigator.geolocation.getCurrentPosition(showPosition, showError, {
+                enableHighAccuracy: true, // 要求高精度
+                timeout: 10000,
+                maximumAge: 0
+            });
+        }
+
+        function showPosition(position) {
+            const lat = position.coords.latitude.toFixed(6);
+            const lng = position.coords.longitude.toFixed(6);
+            const accuracy = position.coords.accuracy;
+
+            document.getElementById("location-status").style.display = 'none';
+            document.getElementById("location-result").classList.remove('hidden');
+            
+            document.getElementById("lat-display").innerText = lat;
+            document.getElementById("lng-display").innerText = lng;
+            document.getElementById("accuracy-display").innerText = `GPS精度: ±${Math.round(accuracy)}米`;
+
+            // 生成高德地图链接 (使用URI API)
+            // 高德地图Web端搜索链接格式
+            const mapUrl = `https://uri.amap.com/marker?position=${lng},${lat}&name=我的紧急位置&coordinate=wgs84&callnative=1`;
+            document.getElementById("map-link").href = mapUrl;
+
+            // 恢复按钮
+            const btn = document.getElementById("get-loc-btn");
+            btn.innerHTML = '<i class="fa-solid fa-rotate-right"></i> 刷新位置';
+            btn.disabled = false;
+            btn.classList.remove('opacity-50');
+            btn.classList.replace('bg-red-600', 'bg-slate-700');
+            btn.classList.replace('hover:bg-red-700', 'hover:bg-slate-600');
+        }
+
+        function showError(error) {
+            const status = document.getElementById("location-status");
+            const btn = document.getElementById("get-loc-btn");
+            
+            let msg = "";
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    msg = "您拒绝了定位请求，请在浏览器设置中允许定位。";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    msg = "无法获取位置信息，请检查GPS是否开启。";
+                    break;
+                case error.TIMEOUT:
+                    msg = "定位请求超时，请重试。";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    msg = "发生未知错误。";
+                    break;
+            }
+            status.innerHTML = `<p class='text-red-400 font-bold'><i class="fa-solid fa-triangle-exclamation"></i> ${msg}</p>`;
+            
+            btn.innerHTML = '<i class="fa-solid fa-crosshairs"></i> 重试定位';
+            btn.disabled = false;
+            btn.classList.remove('opacity-50');
+        }
+    </script>
+</body>
+</html>
