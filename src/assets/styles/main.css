@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+/* Tailwind CSS 导入 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 全局样式 */
+body {
+  font-family: 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  background-color: #f3f4f6;
+  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* 隐藏滚动条但保持滚动 */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 卡片悬停效果 */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+}
+
+/* 类别头部样式 */
+.category-header {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+.category-header img {
+  transition: transform 0.6s ease;
+}
+.category-header:hover img {
+  transform: scale(1.05);
+}
+.glass-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+/* 电话按钮动画 */
+.phone-btning {
+  position: relative;
+  overflow: hidden;
+}
+.phone-btning::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+.phone-btning:hover::after {
+  left: 100%;
+}
+
+/* 定位动画 */
+.pulse-ring {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 0 rgba(239, 68, 68, 0.4);
+  animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+/* 自定义组件样式 */
+.location-result {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式设计增强 */
+@media (max-width: 768px) {
+  .category-header {
+    height: 20vh !important;
+  }
+  
+  .phone-card {
+    padding: 1rem !important;
+  }
+  
+  .search-input {
+    width: 100% !important;
+    margin-top: 0.5rem;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    background-image: none !important;
+  }
+  
+  .phone-card {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb !important;
+  }
+}
