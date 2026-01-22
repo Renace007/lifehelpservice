@@ -1,12 +1,11 @@
 <template>
-  <section>
-    <div class="category-header h-24 mb-6 group relative shadow-lg rounded-xl overflow-hidden">
-      <img :src="categoryImage" class="absolute inset-0 w-full h-full object-cover" :alt="category.title">
-      <div class="glass-overlay absolute inset-0 flex items-center px-8">
-        <h2 class="text-2xl font-bold text-white flex items-center gap-3">
-          <i :class="categoryIcon" class="text-blue-400"></i> {{ category.title }}
-        </h2>
-      </div>
+  <section class="mt-12">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="w-1.5 h-6 bg-primary rounded-full"></span>
+      <h2 class="text-xl font-bold text-slate-800 dark:text-white flex items-center gap-3">
+        <span class="material-icons text-primary">{{ getMaterialIcon(category.id) }}</span>
+        {{ category.title }}
+      </h2>
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -14,6 +13,7 @@
         v-for="phone in category.phones" 
         :key="phone.number"
         :phone="phone"
+        class="transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl"
       />
     </div>
   </section>
@@ -30,18 +30,15 @@ const props = defineProps({
   }
 })
 
-// 类别图标
-const categoryIcon = computed(() => {
-  return `fa-solid ${props.category.icon}`
-})
-
-// 类别背景图片
-const categoryImage = computed(() => {
-  const images = {
-    'express': 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?q=80&w=2000&auto=format&fit=crop'
+// Material Icons映射
+const getMaterialIcon = (categoryId) => {
+  const iconMap = {
+    'express': 'local_shipping',
+    'travel': 'flight',
+    'communication': 'smartphone'
   }
-  return images[props.category.id] || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop'
-})
+  return iconMap[categoryId] || 'category'
+}
 </script>
 
 <style scoped>

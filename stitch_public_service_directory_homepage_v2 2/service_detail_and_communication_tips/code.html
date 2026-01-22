@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>服务详情 - 12345 政务服务便民热线</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Sans SC", "Public Sans", "sans-serif"],
+                        "body": ["Noto Sans SC", "Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Noto Sans SC', 'Public Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark text-slate-900 dark:text-white overflow-x-hidden">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-8 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">public</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">公共服务目录</h2>
+</div>
+<div class="hidden md:flex items-center gap-9">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">首页</a>
+<a class="text-primary text-sm font-bold leading-normal" href="#">服务目录</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">关于我们</a>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 overflow-hidden">
+<div class="text-slate-400 flex items-center justify-center pl-3">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg bg-transparent border-none focus:ring-0 text-sm font-normal leading-normal text-slate-900 dark:text-white placeholder:text-slate-400" placeholder="搜索服务..."/>
+</div>
+</label>
+<button class="md:hidden text-slate-900 dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-6 lg:px-40 flex flex-1 justify-center py-8">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1 gap-6">
+<nav class="flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[18px]">home</span>
+                    首页
+                </a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">返回列表</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-slate-900 dark:text-white font-medium">服务详情</span>
+</nav>
+<div class="flex flex-col md:flex-row gap-6 p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="shrink-0">
+<div class="flex h-32 w-32 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-900/20 text-primary border border-blue-100 dark:border-blue-800">
+<span class="material-symbols-outlined text-[64px]">support_agent</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col justify-center gap-2">
+<div class="flex flex-col gap-1">
+<h1 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight tracking-tight">12345 政务服务便民热线</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg font-medium">市民投诉与咨询服务</p>
+</div>
+<div class="mt-4 flex flex-wrap items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono font-bold text-xl">
+<span class="material-symbols-outlined text-primary">call</span>
+                            12345
+                        </div>
+<span class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+<span class="size-1.5 rounded-full bg-green-600"></span>
+                            24/7 在线
+                        </span>
+</div>
+</div>
+<div class="flex items-center md:items-start md:pt-2">
+<button class="flex w-full md:w-auto min-w-[140px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary hover:bg-blue-600 transition-colors h-12 px-6 text-white text-base font-bold leading-normal tracking-[0.015em] shadow-md shadow-blue-500/20">
+<span class="material-symbols-outlined">call</span>
+<span class="truncate">拨打电话</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-primary">tips_and_updates</span>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight">沟通建议</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="flex flex-col gap-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm transition-shadow hover:shadow-md">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-slate-900 dark:text-white text-base font-bold leading-tight">准备好身份证件</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-relaxed">在拨号前准备好您的身份证号码和相关文件，以加快核实速度。</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm transition-shadow hover:shadow-md">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary">
+<span class="material-symbols-outlined">chat</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-slate-900 dark:text-white text-base font-bold leading-tight">描述力求简洁</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-relaxed">请向话务员清楚说明问题、具体地点和发生时间，语言尽可能简洁。</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm transition-shadow hover:shadow-md">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary">
+<span class="material-symbols-outlined">assignment</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-slate-900 dark:text-white text-base font-bold leading-tight">记录工单编号</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-relaxed">通话结束时，请索要话务员工号或工单编号，以便日后跟进进度。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-2">
+<div class="lg:col-span-2 flex flex-col gap-6">
+<div class="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight mb-4 border-b border-slate-100 dark:border-slate-800 pb-3">业务介绍</h2>
+<div class="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
+<p class="mb-4 leading-7">
+                                “12345”政务服务便民热线是集中的公共非紧急类咨询与投诉平台。它作为政府与市民之间的桥梁，处理范围广泛，涵盖城市管理、公共卫生、市场监管和社会保障等多个领域。
+                            </p>
+<p class="mb-4 leading-7">
+                                市民可以拨打此号码举报城市管理问题（如噪音扰民、违章建筑或道路损坏），咨询政府政策，或寻求行政手续方面的帮助。该服务致力于“听见每一个声音，回应每一个诉求”。
+                            </p>
+<p class="leading-7">
+                                来电通常由中央呼叫中心接听，然后分派给相关的政府部门进行处理。用户可以在通话结束时获取工单编号，并据此追踪投诉的处理进度。
+                            </p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<div class="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<h3 class="text-slate-900 dark:text-white text-base font-bold leading-tight mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">schedule</span>
+                            受理时间
+                        </h3>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-slate-400">工作日</span>
+<span class="font-medium text-slate-900 dark:text-white">24 小时</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-slate-400">周末</span>
+<span class="font-medium text-slate-900 dark:text-white">24 小时</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-slate-400">节假日</span>
+<span class="font-medium text-slate-900 dark:text-white">24 小时</span>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<h3 class="text-slate-900 dark:text-white text-base font-bold leading-tight mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">link</span>
+                            官方渠道
+                        </h3>
+<div class="flex flex-col gap-3">
+<a class="flex items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group" href="#">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded flex items-center justify-center bg-white dark:bg-slate-900 shadow-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-[20px]">language</span>
+</div>
+<span class="text-sm font-medium text-slate-900 dark:text-white">官方网站</span>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary text-[20px]">open_in_new</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group" href="#">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded flex items-center justify-center bg-white dark:bg-slate-900 shadow-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</div>
+<span class="text-sm font-medium text-slate-900 dark:text-white">下载 App</span>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary text-[20px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-1 shadow-sm overflow-hidden">
+<div class="bg-slate-100 dark:bg-slate-800 h-32 w-full rounded-lg relative overflow-hidden" data-alt="Map showing service coverage area" data-location="Beijing, China" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZ-e3fSHzJPrglI2hXtuJyYOdSuRN0_eCAW_WQ3PvISKHaLAS9tlMniIsOSmh4YEDU9HVnOZANiluW9mLUVHMvGYTRqYN3-pvzo4vBxcUTENhK6FSzCgQ2Zy-3vNzhL3xw7FBzVg1Ab4_XUh5wcXpQVF7S13CC78AHZijpqPFm_EiIEP_N5Pfl2ZbXkbbPneourJ2_rVTOwEuT9qyEqidL7p3gnJHJ66CTRxPhBbr1LTUMKi5OHzF47RtSXXec3nD5gn6uEIUkxZX4'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 flex items-center justify-center bg-black/5">
+<button class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1 hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-[16px]">map</span>
+                                    查看服务范围
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

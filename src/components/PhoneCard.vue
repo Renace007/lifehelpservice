@@ -1,26 +1,49 @@
 <template>
-  <div class="bg-white p-5 rounded-2xl shadow-sm border-l-4 card-hover group relative overflow-hidden" 
-       :class="borderColorClass">
-    <div class="flex justify-between items-start mb-2">
-      <div>
-        <h3 class="text-3xl font-black text-slate-900">{{ phone.number }}</h3>
-        <p class="text-sm font-bold" :class="textColorClass">{{ phone.name }}</p>
-      </div>
-      <i :class="iconClass" class="text-4xl group-hover:transition-colors"></i>
+  <div
+    class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 border-l-4 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group relative overflow-hidden"
+    :class="styles.border"
+  >
+    <div class="absolute top-0 right-0 p-3 opacity-5">
+      <span class="material-icons text-9xl">{{ getMaterialIcon(phone.number) }}</span>
     </div>
-    <p class="text-xs text-slate-500 mb-4 h-8">{{ getDescription(phone.number) }}</p>
-    <a 
-      :href="phoneAction" 
-      class="flex items-center justify-center w-full py-2 font-bold rounded-lg transition phone-btning"
-      :class="buttonClass"
-    >
-      <i :class="actionIcon" class="mr-2"></i> {{ actionText }}
-    </a>
+
+    <div class="relative z-10">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <p class="text-3xl font-black text-slate-800 dark:text-white tracking-tighter">{{ phone.number }}</p>
+          <p class="text-sm font-bold mt-1" :class="styles.text">{{ phone.name }}</p>
+        </div>
+        <span class="material-icons text-3xl text-slate-300 group-hover:text-primary transition-colors">
+          {{ getMaterialIcon(phone.number) }}
+        </span>
+      </div>
+
+      <p class="text-xs text-slate-500 dark:text-slate-400 mb-5 leading-relaxed min-h-[2.5rem]">
+        {{ getDescription(phone.number) }}
+      </p>
+
+      <div class="flex gap-2 mt-auto">
+        <RouterLink
+          class="flex-1 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+          :to="{ name: 'ServiceDetail', params: { number: phone.number } }"
+        >
+          查看详情
+        </RouterLink>
+        <a
+          class="flex-1 py-2 rounded-lg text-white text-xs font-bold flex items-center justify-center gap-1 hover:opacity-95 shadow-md"
+          :class="styles.button"
+          :href="phoneHref"
+        >
+          <span class="material-icons text-[14px]">{{ actionIcon }}</span> {{ actionText }}
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { computed } from 'vue'
+import { RouterLink } from 'vue-router'
 
 const props = defineProps({
   phone: {
@@ -29,43 +52,75 @@ const props = defineProps({
   }
 })
 
-// 颜色类计算
-const borderColorClass = computed(() => {
-  return `border-${props.phone.color}-500`
-})
-
-const textColorClass = computed(() => {
-  return `text-${props.phone.color}-600`
-})
-
-const iconClass = computed(() => {
-  return `fa-solid ${props.phone.icon} text-${props.phone.color}-100 group-hover:text-${props.phone.color}-500`
-})
-
-// 按钮样式
-const buttonClass = computed(() => {
-  return {
-    [`bg-${props.phone.color}-50`]: true,
-    [`text-${props.phone.color}-600`]: true,
-    [`hover:bg-${props.phone.color}-600`]: true,
-    'hover:text-white': true
-  }
-})
-
-// 电话操作
-const phoneAction = computed(() => {
+const phoneHref = computed(() => {
   if (props.phone.number === '12110') {
     return 'sms:12110'
   }
   return `tel:${props.phone.number}`
 })
 
-const actionIcon = computed(() => {
-  return props.phone.number === '12110' ? 'fa-solid fa-comments' : 'fa-solid fa-phone'
+const actionText = computed(() => {
+  return props.phone.number === '12110' ? '发送短信' : '拨打'
 })
 
-const actionText = computed(() => {
-  return props.phone.number === '12110' ? '发送短信' : '立即拨打'
+// Material Icons映射
+const getMaterialIcon = (number) => {
+  const iconMap = {
+    '110': 'security',
+    '12110': 'sms',
+    '119': 'local_fire_department',
+    '120': 'local_hospital',
+    '122': 'car_crash',
+    '96110': 'shield_person',
+    '12315': 'balance',
+    '12333': 'badge',
+    '12329': 'home',
+    '12345': 'support_agent',
+    '12366': 'receipt_long',
+    '12348': 'gavel',
+    '114': 'contacts',
+    '95598': 'bolt',
+    '95338': 'local_shipping',
+    '11183': 'mail',
+    '950616': 'inventory',
+    '95311': 'local_shipping',
+    '95554': 'inventory_2',
+    '95543': 'local_shipping',
+    '95546': 'local_shipping',
+    '95353': 'local_shipping',
+    '12306': 'train',
+    '12326': 'flight',
+    '12328': 'directions_car',
+    '10086': 'smartphone',
+    '10000': 'phone_in_talk',
+    '10010': 'signal_cellular_alt',
+    '10099': 'tv'
+  }
+  return iconMap[number] || 'call'
+}
+
+// actionIcon计算属性
+const actionIcon = computed(() => {
+  return props.phone.number === '12110' ? 'sms' : 'call'
+})
+
+const styles = computed(() => {
+  const color = props.phone.color || 'slate'
+  const map = {
+    red: { text: 'text-red-600', border: 'border-red-600', button: 'bg-red-600 hover:bg-red-700 shadow-red-500/20' },
+    orange: { text: 'text-orange-600', border: 'border-orange-500', button: 'bg-orange-500 hover:bg-orange-600 shadow-orange-500/20' },
+    green: { text: 'text-green-600', border: 'border-green-600', button: 'bg-green-600 hover:bg-green-700 shadow-green-500/20' },
+    blue: { text: 'text-blue-600', border: 'border-blue-600', button: 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/20' },
+    secondary: { text: 'text-blue-800', border: 'border-blue-700', button: 'bg-blue-700 hover:bg-blue-800 shadow-blue-500/20' },
+    indigo: { text: 'text-indigo-600', border: 'border-indigo-600', button: 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-500/20' },
+    purple: { text: 'text-purple-600', border: 'border-purple-600', button: 'bg-purple-600 hover:bg-purple-700 shadow-purple-500/20' },
+    teal: { text: 'text-teal-600', border: 'border-teal-600', button: 'bg-teal-600 hover:bg-teal-700 shadow-teal-500/20' },
+    cyan: { text: 'text-cyan-600', border: 'border-cyan-600', button: 'bg-cyan-600 hover:bg-cyan-700 shadow-cyan-500/20' },
+    slate: { text: 'text-slate-600', border: 'border-slate-500', button: 'bg-slate-700 hover:bg-slate-800 shadow-slate-500/20' },
+    yellow: { text: 'text-yellow-600', border: 'border-yellow-500', button: 'bg-yellow-500 hover:bg-yellow-600 shadow-yellow-500/20' },
+    gray: { text: 'text-slate-600', border: 'border-slate-500', button: 'bg-slate-700 hover:bg-slate-800 shadow-slate-500/20' },
+  }
+  return map[color] || map.slate
 })
 
 // 获取描述信息
@@ -89,29 +144,4 @@ const getDescription = (number) => {
 </script>
 
 <style scoped>
-.card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
-}
-
-.phone-btning {
-  position: relative;
-  overflow: hidden;
-}
-.phone-btning::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: 0.5s;
-}
-.phone-btning:hover::after {
-  left: 100%;
-}
 </style>

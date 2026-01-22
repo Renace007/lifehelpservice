@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 
 /* Tailwind CSS 导入 */
@@ -6,12 +9,73 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 主题变量（默认：主页原型） */
+:root {
+  --color-primary: 15 118 110; /* #0f766e */
+  --color-primary-dark: 12 89 83; /* ~#0c5953 */
+  --color-secondary: 30 64 175; /* #1e40af */
+  --color-danger: 220 38 38; /* #dc2626 */
+  --color-success: 22 163 74; /* #16a34a */
+  --color-warning: 234 179 8; /* #eab308 */
+  --color-bg-light: 248 250 252; /* #f8fafc */
+  --color-bg-dark: 15 23 42; /* #0f172a */
+  --color-surface-light: 255 255 255; /* #ffffff */
+  --color-surface-dark: 15 23 42; /* #0f172a */
+}
+
+.theme-area-code {
+  --color-primary: 71 167 235; /* #47a7eb */
+  --color-primary-dark: 53 140 201; /* #358cc9 */
+  --color-secondary: 30 64 175;
+  --color-danger: 220 38 38;
+  --color-success: 22 163 74;
+  --color-warning: 234 179 8;
+  --color-bg-light: 246 247 248; /* #f6f7f8 */
+  --color-bg-dark: 17 26 33; /* #111a21 */
+  --color-surface-light: 255 255 255;
+  --color-surface-dark: 26 38 50; /* #1a2632 */
+}
+
+.theme-service-detail {
+  --color-primary: 25 127 230; /* #197fe6 */
+  --color-primary-dark: 21 101 192; /* ~#1565c0 */
+  --color-secondary: 30 64 175;
+  --color-danger: 220 38 38;
+  --color-success: 22 163 74;
+  --color-warning: 234 179 8;
+  --color-bg-light: 246 247 248; /* #f6f7f8 */
+  --color-bg-dark: 17 25 33; /* #111921 */
+  --color-surface-light: 255 255 255;
+  --color-surface-dark: 15 23 42;
+}
+
 /* 全局样式 */
 body {
-  font-family: 'Noto Sans SC', system-ui, -apple-system, sans-serif;
-  background-color: #f3f4f6;
-  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
-  background-size: 24px 24px;
+  font-family: 'Noto Sans SC', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* 玻璃拟态背景（原型） */
+.bg-glass {
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.dark .bg-glass {
+  background-color: rgba(15, 23, 42, 0.9);
+}
+
+/* 滚动条（原型） */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
 }
 
 /* 隐藏滚动条但保持滚动 */

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>全国电话区号查询工具</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#47a7eb",
+                        "primary-dark": "#358cc9",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111a21",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2632",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 overflow-x-hidden antialiased transition-colors duration-200">
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur">
+<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+<div class="flex items-center gap-4">
+<div class="flex size-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">public</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white hidden sm:block">公共服务目录</h1>
+</div>
+<nav class="hidden md:flex flex-1 items-center justify-end gap-8">
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">首页</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">目录</a>
+<a class="text-sm font-medium text-primary dark:text-primary transition-colors" href="#">工具</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">联系我们</a>
+</nav>
+<div class="flex items-center gap-4 pl-8">
+<button class="flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark transition-all">
+                登录
+            </button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+<nav class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-8">
+<a class="hover:text-primary transition-colors" href="#">首页</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">工具</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-medium text-slate-900 dark:text-white">区号查询</span>
+</nav>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-12">
+<div class="mb-10 text-center max-w-3xl mx-auto">
+<div class="inline-flex items-center justify-center p-3 mb-4 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">call</span>
+</div>
+<h2 class="text-3xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white mb-3">
+                        全国电话区号查询
+                    </h2>
+<p class="text-lg text-slate-600 dark:text-slate-300">
+                        快速查找中国各城市的电话区号。在下方搜索城市名称或代码。
+                    </p>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 mb-8 max-w-4xl mx-auto">
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="block w-full rounded-xl border-slate-200 bg-slate-50 dark:bg-background-dark dark:border-slate-700 py-4 pl-12 pr-4 text-base text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-primary dark:focus:ring-primary shadow-sm transition-all" placeholder="请输入城市名或区号" type="text"/>
+<div class="absolute inset-y-0 right-2 flex items-center">
+<button class="rounded-lg bg-primary hover:bg-primary-dark text-white px-4 py-2 text-sm font-medium transition-colors shadow-sm">
+                                搜索
+                            </button>
+</div>
+</div>
+<p class="mt-3 text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">info</span>
+                        提示：您可以搜索拼音（如 “Chengdu”）或汉字（如 “成都”）。
+                    </p>
+</div>
+<div class="mb-8">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">按城市首字母浏览</h3>
+<button class="text-sm font-medium text-primary hover:text-primary-dark transition-colors">查看全部</button>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-primary text-white font-semibold shadow-sm ring-2 ring-primary ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark">A</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">B</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">C</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">D</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">E</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">F</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">G</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">H</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">J</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">K</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">L</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">M</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">N</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">P</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">Q</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">R</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">S</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">T</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">W</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">X</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">Y</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all">Z</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="min-w-full text-left text-sm whitespace-nowrap">
+<thead class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<tr>
+<th class="px-6 py-4 font-semibold text-slate-900 dark:text-white" scope="col">省份/地区</th>
+<th class="px-6 py-4 font-semibold text-slate-900 dark:text-white" scope="col">城市名称</th>
+<th class="px-6 py-4 font-semibold text-slate-900 dark:text-white" scope="col">电话区号</th>
+<th class="px-6 py-4 font-semibold text-slate-900 dark:text-white text-right" scope="col">操作</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">安徽 (AH)</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">安庆</td>
+<td class="px-6 py-4 font-mono text-slate-600 dark:text-slate-300">0556</td>
+<td class="px-6 py-4 text-right">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-primary hover:bg-primary/10 transition-colors" title="Copy Area Code">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span class="text-xs font-semibold">复制</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">安徽 (AH)</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">蚌埠</td>
+<td class="px-6 py-4 font-mono text-slate-600 dark:text-slate-300">0552</td>
+<td class="px-6 py-4 text-right">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-primary hover:bg-primary/10 transition-colors" title="Copy Area Code">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span class="text-xs font-semibold">复制</span>
+</button>
+</td>
+</tr>
+<tr class="bg-primary/5 hover:bg-primary/10 dark:bg-primary/10 dark:hover:bg-primary/20 transition-colors group">
+<td class="px-6 py-4 text-slate-700 dark:text-slate-300">新疆 (XJ)</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">阿克苏</td>
+<td class="px-6 py-4 font-mono text-slate-700 dark:text-slate-200 font-bold">0997</td>
+<td class="px-6 py-4 text-right">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-surface-dark text-green-600 border border-green-200 shadow-sm transition-colors" title="Copied!">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span class="text-xs font-semibold">已复制</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">黑龙江 (HL)</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">阿城</td>
+<td class="px-6 py-4 font-mono text-slate-600 dark:text-slate-300">0451</td>
+<td class="px-6 py-4 text-right">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-primary hover:bg-primary/10 transition-colors" title="Copy Area Code">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span class="text-xs font-semibold">复制</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">吉林 (JL)</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">安图</td>
+<td class="px-6 py-4 font-mono text-slate-600 dark:text-slate-300">0433</td>
+<td class="px-6 py-4 text-right">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-primary hover:bg-primary/10 transition-colors" title="Copy Area Code">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span class="text-xs font-semibold">复制</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">陕西 (SN)</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">安康</td>
+<td class="px-6 py-4 font-mono text-slate-600 dark:text-slate-300">0915</td>
+<td class="px-6 py-4 text-right">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-primary hover:bg-primary/10 transition-colors" title="Copy Area Code">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span class="text-xs font-semibold">复制</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">贵州 (GZ)</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">安顺</td>
+<td class="px-6 py-4 font-mono text-slate-600 dark:text-slate-300">0853</td>
+<td class="px-6 py-4 text-right">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-primary hover:bg-primary/10 transition-colors" title="Copy Area Code">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span class="text-xs font-semibold">复制</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">河南 (HA)</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">安阳</td>
+<td class="px-6 py-4 font-mono text-slate-600 dark:text-slate-300">0372</td>
+<td class="px-6 py-4 text-right">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-primary hover:bg-primary/10 transition-colors" title="Copy Area Code">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span class="text-xs font-semibold">复制</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-surface-dark px-4 py-3 flex items-center justify-between sm:px-6">
+<div class="hidden sm:flex flex-1 items-center justify-between">
+<div>
+<p class="text-sm text-slate-600 dark:text-slate-400">
+                                    显示 <span class="font-medium text-slate-900 dark:text-white">42</span> 个以 "A" 开头的结果中的 <span class="font-medium text-slate-900 dark:text-white">1</span> 到 <span class="font-medium text-slate-900 dark:text-white">8</span> 条
+                                </p>
+</div>
+<div>
+<nav aria-label="Pagination" class="isolate inline-flex -space-x-px rounded-md shadow-sm">
+<a class="relative inline-flex items-center rounded-l-md px-2 py-2 text-slate-400 ring-1 ring-inset ring-slate-300 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 focus:z-20 focus:outline-offset-0" href="#">
+<span class="sr-only">Previous</span>
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</a>
+<a aria-current="page" class="relative z-10 inline-flex items-center bg-primary px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" href="#">1</a>
+<a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-slate-900 dark:text-slate-200 ring-1 ring-inset ring-slate-300 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 focus:z-20 focus:outline-offset-0" href="#">2</a>
+<a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-slate-900 dark:text-slate-200 ring-1 ring-inset ring-slate-300 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 focus:z-20 focus:outline-offset-0" href="#">3</a>
+<span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-400 ring-1 ring-inset ring-slate-300 dark:ring-slate-700 focus:outline-offset-0">...</span>
+<a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-slate-900 dark:text-slate-200 ring-1 ring-inset ring-slate-300 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 focus:z-20 focus:outline-offset-0" href="#">6</a>
+<a class="relative inline-flex items-center rounded-r-md px-2 py-2 text-slate-400 ring-1 ring-inset ring-slate-300 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 focus:z-20 focus:outline-offset-0" href="#">
+<span class="sr-only">Next</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</nav>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 p-4 flex items-start gap-4">
+<div class="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-primary">
+<span class="material-symbols-outlined">help</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">找不到区号？</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                                如果找不到列出的城市，请尝试搜索省会或最近的主要城市。
+                            </p>
+</div>
+</div>
+<div class="rounded-lg bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 p-4 flex items-start gap-4">
+<div class="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-primary">
+<span class="material-symbols-outlined">download</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">下载完整目录</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                                获取所有中国地区代码的完整 PDF 列表以供离线使用。
+                                <a class="text-primary hover:underline ml-1" href="#">下载 PDF</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-surface-dark mt-auto">
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4">
+<p class="text-sm text-slate-500 dark:text-slate-400">© 2023 公共服务目录。保留所有权利。</p>
+<div class="flex gap-6">
+<a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400 transition-colors" href="#">隐私政策</a>
+<a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400 transition-colors" href="#">服务条款</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>
